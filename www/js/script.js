@@ -19,7 +19,7 @@ function majAffichage(noCarte){
 			imgCartes[noCarte].src="fondcarte.png";
 			break;
 		case 1:
-			imgCartes[noCarte].src="carte"+motifsCartes[noCarte]+".png";
+			imgCartes[noCarte].src="image/carte_"+motifsCartes[noCarte]+".png";
 			break;
 		case -1:
 			imgCartes[noCarte].style.visibility="hidden";
