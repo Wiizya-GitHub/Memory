@@ -41,3 +41,31 @@ function initialiseJeu(){
 		motifsCartes[hasard]=sauve;
 	}
 }
+
+function controleJeu(noCarte){
+    if(cartesRetournees.length<2){
+        if(etatsCartes[noCarte]==0){
+			etatsCartes[noCarte]=1;
+			cartesRetournees.push(noCarte);
+			majAffichage(noCarte);
+		}
+        if(cartesRetournees.length==2){
+			var nouveauEtat=0;
+			if(motifsCartes[cartesRetournees[0]]==motifsCartes[cartesRetournees[1]]){
+				nouveauEtat=-1;
+				nbPairesTrouvees++;
+			}
+
+			etatsCartes[cartesRetournees[0]]=nouveauEtat;
+			etatsCartes[cartesRetournees[1]]=nouveauEtat;
+            setTimeout(function(){
+				majAffichage(cartesRetournees[0]);
+				majAffichage(cartesRetournees[1]);
+				cartesRetournees=[];
+				if(nbPairesTrouvees==10){
+					rejouer();
+				}
+			},750);
+		}
+	}
+}
