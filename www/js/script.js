@@ -2,7 +2,9 @@ var motifsCartes=[1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10];
 var etatsCartes=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; 
 var cartesRetournees=[];
 var nbPairesTrouvees=0;
-var imgCartes=document.getElementById("tapis").getElementsByTagName("img");	
+var imgCartes=document.getElementById("tapis").getElementsByTagName("img");
+var nbErreur = 0;
+var erreurAuto = 20;	
 
 for(var i=0;i<imgCartes.length;i++){
 	imgCartes[i].noCarte=i; //Ajout de la propriété noCarte à l'objet img
@@ -11,12 +13,27 @@ for(var i=0;i<imgCartes.length;i++){
 	}                      
 }
 
+$(document).ready(function() {
+    $("button").click(function() {
+        location.reload(true);
+    });
+	$('.score').text(' 0 ');
+	$('.erreurAuto').text(' / ' + erreurAuto);
+});
+
 initialiseJeu();
 
 function majAffichage(noCarte){
 	switch(etatsCartes[noCarte]){
 		case 0:
 			imgCartes[noCarte].src="fondcarte.png";
+			nbErreur = nbErreur + 0.5;
+			$('.score').text(nbErreur);
+			if (nbErreur == erreurAuto) {
+				$('#tapis').addClass('perdu').text('Perdu');
+				$('.scoreboard').addClass('hidden');
+				$('#button').removeClass('hidden');
+			}
 			break;
 		case 1:
 			imgCartes[noCarte].src="image/carte_"+motifsCartes[noCarte]+".png";

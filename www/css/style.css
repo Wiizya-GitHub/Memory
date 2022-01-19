@@ -27,3 +27,25 @@ img {
 	margin: 1.5vh;
 	box-shadow:rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
+.perdu{
+	font-size: 50px;
+}
+
+.hidden{
+	display: none!important;
+}
+
+#jeu{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+p{
+	text-align: center;
+	font-size: 30px;
+}
+.scoreboard{
+	display: flex;
+	justify-content: center;
+}
