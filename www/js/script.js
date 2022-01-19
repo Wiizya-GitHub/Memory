@@ -26,7 +26,7 @@ initialiseJeu();
 function majAffichage(noCarte){
 	switch(etatsCartes[noCarte]){
 		case 0:
-			imgCartes[noCarte].src="fondcarte.png";
+			imgCartes[noCarte].src="image/fondcarte.png";
 			nbErreur = nbErreur + 0.5;
 			$('.score').text(nbErreur);
 			if (nbErreur == erreurAuto) {
